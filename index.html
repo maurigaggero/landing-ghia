@@ -353,6 +353,11 @@
                         return;
                     }
                     const precios = await res.json();
+                    if (!precios || precios.length === 0) {
+                        preciosBody.innerHTML = `<tr><td colspan="2">No se encontraron precios.</td></tr>`;
+                        preciosContainer.style.display = 'block';
+                        return;
+                    }
                     preciosBody.innerHTML = "";
                     precios.forEach(p => {
                         preciosBody.innerHTML += `
@@ -363,7 +368,7 @@
                         `;
                     });
                     preciosContainer.style.display = 'block';
-                });
+            });
         });
     });
 </script>
