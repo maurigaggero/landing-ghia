@@ -52,6 +52,7 @@
             </div>
         </div>
     </header>
+
     <!-- About-->
     <section class="about-section text-center" id="about">
         <div class="container px-4 px-lg-5">
@@ -60,14 +61,52 @@
                     <h2 class="text-white mb-4">Nuestra visión</h2>
                     <p class="text-white-50">
                         En un mercado donde los autos usados dominan las operaciones, ofrecemos transparencia y acceso al historial real de cada vehículo.
-                        Nuestra aplicación nace con una idea simple: ayudarte a mantener al día el servicio de tu auto y 
+                        Nuestra aplicación nace con una idea simple: ayudarte a mantener al día el servicio de tu auto y
                         facilitar esa información cuando decidas venderlo o comprar otro con verificación confiable.
                     </p>
                 </div>
             </div>
-             <img class="img-fluid" src="assets/img/ipad.png" alt="..." /> 
+            <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
         </div>
     </section>
+
+    <!-- Search Section -->
+    <div class="container mt-5 bg-light p-4 rounded" style="max-width: 900px;">
+        <div class="featured-text text-center">
+            <h2> ¿Querés saber cuánto vale tu auto?</h2>
+            <p>
+                Con nuestro cotizador online podés obtener una tasación rápida y confiable, sin moverte de donde estas.
+                Así, vendés o comprás sin sorpresas con la información de tu lado. ¡Simple y al toque!
+            </p>
+            <hr>
+        </div>
+        <h3 class="text-center mb-4">Consulta precios por marca y modelo</h3>
+        <form id="search-form">
+            <div class="row mb-3">
+                <div class="col-md-4 mb-2">
+                    <input type="text" id="marca" class="form-control" style="wid" placeholder="Marca" autocomplete="off">
+                </div>
+                <div class="col-md-4 mb-2">
+                    <input type="text" id="modelo" class="form-control" placeholder="Modelo" autocomplete="off" disabled>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <input type="text" id="version" class="form-control" placeholder="Versión" autocomplete="off" disabled>
+                </div>
+            </div>
+        </form>
+
+        <div id="precios-container" class="table-responsive" style="display:none;">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Año</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="precios-body"></tbody>
+            </table>
+        </div>
+    </div>
     <!-- Projects-->
     <section class="projects-section bg-light" id="projects">
         <div class="container px-4 px-lg-5">
@@ -90,10 +129,12 @@
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
                                 <h1 class="text-white">Usados verificados</h1>
-                                    <p class="mb-0 text-white-50"> Comprar un usado siempre implica riesgos. Por eso desarrollamos un módulo para verificadores de vehículos, 
-                                    especialistas inspeccionan tu vehiculo antes de una compra y cargar un informe en la app, que incluye chequeo de componentes clave, 
+                                <p class="mb-0 text-white-50">
+                                    Comprar un usado siempre implica riesgos. Por eso desarrollamos un módulo para verificadores de vehículos,
+                                    especialistas inspeccionan tu vehiculo antes de una compra y cargar un informe en la app, que incluye chequeo de componentes clave,
                                     observaciones técnicas y fotos. El informe queda asociado al vehículo y puede compartirse fácilmente.
-                                    Esto permite que quien vende lo haga con total transparencia, y quien compra tenga herramientas reales para tomar mejores decisiones..</p>
+                                    Esto permite que quien vende lo haga con total transparencia, y quien compra tenga herramientas reales para tomar mejores decisiones..
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -107,9 +148,11 @@
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-right">
                                 <h1 class="text-white"> Historial de servicios</h1>
-                                 <p class="mb-0 text-white-50">Para que cuando vayas a tu taller de confianza, puedas cargar información del trabajo realizado,
-                                 dejando la trazabilidad, fechas y kilometros de cada service. Además recibis notificaciones y alertas en tu celular para mantenerlo al dia.
-                                 Que esperas? No hace falta ser un experto para usarla, nos adaptamos a vos.</p>
+                                <p class="mb-0 text-white-50">
+                                    Para que cuando vayas a tu taller de confianza, puedas cargar información del trabajo realizado,
+                                    dejando la trazabilidad, fechas y kilometros de cada service. Además recibis notificaciones y alertas en tu celular para mantenerlo al dia.
+                                    Que esperas? No hace falta ser un experto para usarla, nos adaptamos a vos.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -176,3 +219,135 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
+<style>
+    .autocomplete-results {
+        position: absolute;
+        background-color: #111;
+        border: 1px solid #444;
+        border-radius: 4px;
+        max-height: 200px;
+        overflow-y: auto;
+        width: 300px;
+        z-index: 999;
+    }
+
+    .autocomplete-item {
+        padding: 8px 12px;
+        cursor: pointer;
+        color: #fff;
+    }
+
+        .autocomplete-item:hover {
+            background-color: #333;
+        }
+
+    .input-wrapper {
+        position: relative;
+        display: block;
+        width: 100%;
+    }
+
+        .input-wrapper input.form-control {
+            width: 100%;
+            box-sizing: border-box;
+        }
+</style>
+
+<script>
+    const marcaInput = document.getElementById('marca');
+    const modeloInput = document.getElementById('modelo');
+    const versionInput = document.getElementById('version');
+    const preciosContainer = document.getElementById('precios-container');
+    const preciosBody = document.getElementById('precios-body');
+    const apiBase = "https://ghiaprecios.azurewebsites.net/api/precios";
+
+    function setupCustomAutocomplete(input, buildUrl, onSelect) {
+        // Crear contenedor de resultados
+        const wrapper = document.createElement('div');
+        wrapper.className = 'input-wrapper';
+        input.parentNode.insertBefore(wrapper, input);
+        wrapper.appendChild(input);
+
+        const resultsBox = document.createElement('div');
+        resultsBox.className = 'autocomplete-results';
+        resultsBox.style.display = 'none';
+        wrapper.appendChild(resultsBox);
+
+        input.addEventListener('focus', async () => {
+            await fetchAndShow("", input, resultsBox, buildUrl, onSelect);
+        });
+
+        input.addEventListener('input', async () => {
+            const term = input.value.trim();
+            await fetchAndShow(term, input, resultsBox, buildUrl, onSelect);
+        });
+
+        input.addEventListener('blur', () => {
+            setTimeout(() => resultsBox.style.display = 'none', 200);
+        });
+
+        function clearResults() {
+            resultsBox.innerHTML = "";
+        }
+
+        async function fetchAndShow(term, input, container, buildUrl, onSelect) {
+            const url = buildUrl(term);
+            const res = await fetch(url);
+            const data = await res.json();
+            clearResults();
+
+            if (data.length === 0) {
+                container.style.display = 'none';
+                return;
+            }
+
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'autocomplete-item';
+                div.textContent = item;
+                div.addEventListener('click', () => {
+                    input.value = item;
+                    container.style.display = 'none';
+                    if (onSelect) onSelect(item);
+                });
+                container.appendChild(div);
+            });
+
+            container.style.display = 'block';
+        }
+    }
+
+    setupCustomAutocomplete(marcaInput, (term) => `${apiBase}/marcas?query=${encodeURIComponent(term)}`, (marca) => {
+        modeloInput.value = "";
+        versionInput.value = "";
+        modeloInput.disabled = false;
+        versionInput.disabled = true;
+
+        setupCustomAutocomplete(modeloInput, (term) => `${apiBase}/modelos?marca=${encodeURIComponent(marca)}&query=${encodeURIComponent(term)}`, (modelo) => {
+            versionInput.value = "";
+            versionInput.disabled = false;
+
+            setupCustomAutocomplete(versionInput, (term) => `${apiBase}/versiones?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&query=${encodeURIComponent(term)}`, async (version) => {
+                const res = await fetch(`${apiBase}/resultados?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&version=${encodeURIComponent(version)}`);
+                if (!res.ok) {
+                    preciosBody.innerHTML = `<tr><td colspan="2">No se encontraron precios.</td></tr>`;
+                    preciosContainer.style.display = 'block';
+                    return;
+                }
+                const precios = await res.json();
+
+                preciosBody.innerHTML = "";
+                precios.forEach(p => {
+                    preciosBody.innerHTML += `
+                        <tr>
+                            <td>${p.anio}</td>
+                            <td>$${p.precio.toLocaleString()}</td>
+                        </tr>
+                    `;
+                });
+                preciosContainer.style.display = 'block';
+            });
+        });
+    });
+</script>
