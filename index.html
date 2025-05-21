@@ -256,11 +256,18 @@
 
 <script>
     const marcaInput = document.getElementById('marca');
-    const modeloInput = document.getElementById('modelo');
-    const versionInput = document.getElementById('version');
+    let modeloInput = document.getElementById('modelo');
+    let versionInput = document.getElementById('version');
     const preciosContainer = document.getElementById('precios-container');
     const preciosBody = document.getElementById('precios-body');
     const apiBase = "https://ghiaprecios.azurewebsites.net/api/precios";
+
+    function resetInput(inputId) {
+        const oldInput = document.getElementById(inputId);
+        const newInput = oldInput.cloneNode(true); // clona sin eventos
+        oldInput.parentNode.replaceChild(newInput, oldInput);
+        return newInput;
+    }
 
     function setupCustomAutocomplete(input, buildUrl, onSelect) {
         // Crear contenedor de resultados
@@ -318,36 +325,45 @@
         }
     }
 
+    // Marca
     setupCustomAutocomplete(marcaInput, (term) => `${apiBase}/marcas?query=${encodeURIComponent(term)}`, (marca) => {
+        // Resetear campos y contenedores
+        modeloInput = resetInput("modelo");
+        versionInput = resetInput("version");
         modeloInput.value = "";
         versionInput.value = "";
         modeloInput.disabled = false;
         versionInput.disabled = true;
+        preciosContainer.style.display = 'none';
 
+        // Modelo
         setupCustomAutocomplete(modeloInput, (term) => `${apiBase}/modelos?marca=${encodeURIComponent(marca)}&query=${encodeURIComponent(term)}`, (modelo) => {
+            versionInput = resetInput("version");
             versionInput.value = "";
             versionInput.disabled = false;
+            preciosContainer.style.display = 'none';
 
-            setupCustomAutocomplete(versionInput, (term) => `${apiBase}/versiones?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&query=${encodeURIComponent(term)}`, async (version) => {
-                const res = await fetch(`${apiBase}/resultados?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&version=${encodeURIComponent(version)}`);
-                if (!res.ok) {
-                    preciosBody.innerHTML = `<tr><td colspan="2">No se encontraron precios.</td></tr>`;
+            // Versión
+            setupCustomAutocomplete(versionInput, (term) =>
+                `${apiBase}/versiones?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&query=${encodeURIComponent(term)}`, async (version) => {
+                    const res = await fetch(`${apiBase}/resultados?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&version=${encodeURIComponent(version)}`);
+                    if (!res.ok) {
+                        preciosBody.innerHTML = `<tr><td colspan="2">No se encontraron precios.</td></tr>`;
+                        preciosContainer.style.display = 'block';
+                        return;
+                    }
+                    const precios = await res.json();
+                    preciosBody.innerHTML = "";
+                    precios.forEach(p => {
+                        preciosBody.innerHTML += `
+                            <tr>
+                                <td>${p.anio}</td>
+                                <td>$${p.precio.toLocaleString()}</td>
+                            </tr>
+                        `;
+                    });
                     preciosContainer.style.display = 'block';
-                    return;
-                }
-                const precios = await res.json();
-
-                preciosBody.innerHTML = "";
-                precios.forEach(p => {
-                    preciosBody.innerHTML += `
-                        <tr>
-                            <td>${p.anio}</td>
-                            <td>$${p.precio.toLocaleString()}</td>
-                        </tr>
-                    `;
                 });
-                preciosContainer.style.display = 'block';
-            });
         });
     });
 </script>
