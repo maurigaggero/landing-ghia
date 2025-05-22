@@ -41,9 +41,9 @@
                     <h2 class="text-white-50 mx-auto mt-2 mb-5">Sabemos que cada auto tiene su historia.<br> Nuestra plataforma te acompaña en cada etapa: desde la compra hasta su cuidado diario.</h2>
 
                     <div class="d-grid gap-3 d-md-flex justify-content-center">
-                        <a class="btn btn-primary col-12 col-md-auto" href="https://wonderful-desert-045a4720f.5.azurestaticapps.net/verificados">
+                        <!--<a class="btn btn-primary col-12 col-md-auto" href="https://wonderful-desert-045a4720f.5.azurestaticapps.net/verificados">
                             Usados verificados
-                        </a>
+                        </a>-->
                         <a class="btn btn-primary col-12 col-md-auto" href="https://wonderful-desert-045a4720f.5.azurestaticapps.net/">
                             Registrate
                         </a>
@@ -69,6 +69,13 @@
             <img class="img-fluid" src="assets/img/ipad.png" alt="..." />
         </div>
     </section>
+
+    <div class="container my-5">
+        <h3 class="text-center text-black my-2"><i class="fas fa-check-circle small" style="color: dodgerblue;"></i> Verificados destacados </h3>
+        <div class="d-flex d-flex justify-content-center overflow-auto gap-3 pb-2" id="carouselVerificados">
+            <!-- Tarjetas cargadas por JS -->
+        </div>
+    </div>
 
     <!-- Search Section -->
     <div class="container mt-5 bg-light p-4 rounded" style="max-width: 900px;">
@@ -135,7 +142,7 @@
                                 <h1 class="text-white">Usados verificados</h1>
                                 <p class="mb-0 text-white-50">
                                     Comprar un usado siempre implica dudas.
-                                    Por eso creamos un módulo de verificadores: especialistas inspeccionan el vehículo antes de la compra y generan un informe con puntos clave, 
+                                    Por eso creamos un módulo de verificadores: especialistas inspeccionan el vehículo antes de la compra y generan un informe con puntos clave,
                                     observaciones y fotos.
                                     El informe queda asociado al auto y se puede compartir fácilmente, ayudando a vender con transparencia y a comprar con confianza.
                                 </p>
@@ -153,7 +160,7 @@
                             <div class="project-text w-100 my-auto text-center text-lg-right">
                                 <h1 class="text-white"> Historial de servicios</h1>
                                 <p class="mb-0 text-white-50">
-                                    Registrá cada service realizado en tu taller de confianza, con fechas y kilometraje. 
+                                    Registrá cada service realizado en tu taller de confianza, con fechas y kilometraje.
                                     Mantené un historial completo y recibí alertas para no olvidar el próximo mantenimiento
                                     Que esperas? No hace falta ser un experto para usarla, nos adaptamos a vos.
                                 </p>
@@ -384,4 +391,49 @@
                 });
         });
     });
+
+    async function loadVerificados() {
+        const container = document.getElementById('carouselVerificados');
+
+        try {
+            const res = await fetch('https://carwatcherapi.azurewebsites.net/api/verificacion'); // cambiá la URL si hace falta
+            const data = await res.json();
+            const verificaciones = data.slice(0, 12); // Mostramos hasta 12
+
+            // Si no hay vehículos, mostramos un mensaje
+            if (verificaciones.length === 0) {
+                const mensaje = document.createElement('p');
+                mensaje.textContent = "No hay vehículos disponibles en este momento.";
+                mensaje.className = "text-center text-muted mt-3";
+                container.appendChild(mensaje);
+                return;
+            }
+
+            verificaciones.forEach(v => {
+                const div = document.createElement('div');
+                div.className = "card";
+                div.style.minWidth = "200px";
+
+                const link = document.createElement('a');
+                link.href = `https://wonderful-desert-045a4720f.5.azurestaticapps.net/verificados`; // Ajustá esta ruta al detalle del auto
+                link.style.textDecoration = 'none'; // Opcional: saca el subrayado
+                link.style.color = 'inherit';       // Opcional: mantiene el color de texto
+
+                link.innerHTML = `
+                        <img src="${v.rutaArchivos[0]}" class="card-img-top" style="height: 160px; object-fit: cover;" alt="Foto de ${v.dominio}">
+                        <div class="card-body">
+                            <h6 class="card-title mb-1">${v.marca} ${v.modelo}</h6>
+                            <small class="text-muted">${v.dominio} - ${v.modelYear} - ${v.kilometraje} km</small>
+                        </div>`;
+
+                div.appendChild(link);
+                container.appendChild(div);
+            });
+
+        } catch (err) {
+            console.error('Error al cargar vehículos:', err);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadVerificados);
 </script>
