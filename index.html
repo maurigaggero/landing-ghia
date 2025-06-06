@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Ghia es la app para verificar autos usados antes de comprar. Consultá historial de servicios y hacé una compra segura y transparente." />
     <meta name="author" content="GHIA" />
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="GHIA - Verifica tu próximo auto">
+    <meta property="og:description" content="Ghia te ayuda a verificar autos usados y conocer su historial antes de comprar.">
+    <meta property="og:image" content="https://app.ghia.com.ar/assets/img/ipad.png">
+    <meta property="og:url" content="https://app.ghia.com.ar/">
+
     <title>GHIA - Verifica tu próximo auto</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -91,7 +97,7 @@
         <form id="search-form">
             <div class="row mb-3">
                 <div class="col-md-4 mb-2">
-                    <input type="text" id="marca" class="form-control" style="wid" placeholder="Marca" autocomplete="off">
+                    <input type="text" id="marca" class="form-control" placeholder="Marca" autocomplete="off">
                 </div>
                 <div class="col-md-4 mb-2">
                     <input type="text" id="modelo" class="form-control" placeholder="Modelo" autocomplete="off" disabled>
@@ -224,10 +230,12 @@
                 </div>
             </div>-->
             <div class="d-flex flex-column align-items-center">
-                <a class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2" style="background: rgba(255,255,255,0.1); color: #64a19d;" href="https://wa.me/543572667719?text=Hola!%20Estoy%20interesado%20en%20sus%20servicios." target="_blank" aria-label="WhatsApp">
+                <a class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2" style="background: rgba(255,255,255,0.1); color: #fff;" href="https://wa.me/543572667719?text=Hola!%20Estoy%20interesado%20en%20sus%20servicios." target="_blank" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp me-2"></i> WhatsApp
                 </a>
-                <span class="text-white">Envianos tu mensaje</span>
+                <a href="mailto:argentinaghia@gmail.com" class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2" style="background: rgba(255,255,255,0.1); color: #fff;" aria-label="Correo electrónico">
+                    <i class="fas fa-envelope me-2"></i> Correo
+                </a>
             </div>
         </div>
     </section>
