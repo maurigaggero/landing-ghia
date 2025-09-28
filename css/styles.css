@@ -12832,8 +12832,8 @@ body {
 
 .fade-slide {
   opacity: 0;
-transform: translateX(-20px) translateY(10px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateX(-10px) translateY(10px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .fade-slide.show {
