@@ -71,7 +71,9 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="text-white mb-4">¿Vas a comprar o vender un auto?</h2>
-                    <p class="text-white-50 mb-4" style="font-size:18px"> Nadie quiere comprarse un clavo.<br> Te ofrecemos servicio de peritaje, mantener su historial y saber cuánto vale al instante.</p>
+                    <p class="text-white-50 mb-4"> Evitá sorpresas: peritaje pre-compra, historial completo de servicios y cotización rápida de tu vehículo.
+                        <br> Todo online y en un solo lugar.
+                    </p>
                     <!--<p class="text-white-50"> </p>-->
                     <div class="d-grid gap-3 d-md-flex justify-content-center">
                         <!--<a class="btn btn-primary col-12 col-md-auto" href="https://app.ghia.com.ar/verificados">
@@ -93,7 +95,7 @@
             <h2> ¿Querés saber cuánto vale tu auto?</h2>
             <p>
                 Con nuestro cotizador online podés obtener una tasación rápida y confiable, sin moverte de donde estas.
-                Así, vendés o comprás sin sorpresas con la información de tu lado. ¡Simple y al toque!
+                Así, vendés o comprás con la información de tu lado. ¡Simple y al toque!
             </p>
             <hr>
         </div>
@@ -305,6 +307,24 @@
 </style>
 
 <script>
+    const elements = document.querySelectorAll('p, b, text, strong, h1, h2, h3, h4, h5, h6, img');
+
+    elements.forEach(el => el.classList.add('fade-slide'));
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        } else {
+        entry.target.classList.remove('show');
+        }
+    });
+    }, {
+    threshold: 0.1
+    });
+
+    elements.forEach(el => observer.observe(el));
+
     const marcaInput = document.getElementById('marca');
     let modeloInput = document.getElementById('modelo');
     let versionInput = document.getElementById('version');
