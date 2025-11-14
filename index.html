@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="es-AR">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Historial de tu auto siempre a mano y servicio peritaje pre-compra de vehiculos." />
+    <meta name="description"
+        content="Historial de tu auto siempre a mano y servicio peritaje pre-compra de vehiculos." />
     <meta name="author" content="GHIA" />
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="GHIA - Servicio de peritaje pre-compra">
-    <meta property="og:description" content="Historial de tu auto siempre a mano y servicio peritaje pre-compra de vehiculos.">
+    <meta property="og:description"
+        content="Historial de tu auto siempre a mano y servicio peritaje pre-compra de vehiculos.">
     <meta property="og:image" content="https://app.ghia.com.ar/assets/img/bg-masthead.jpg">
     <meta property="og:url" content="https://app.ghia.com.ar/">
 
-    <title>GHIA - Servicio de peritaje pre-compra</title>  <!--  Tu próximo usado sin sorpresas-->
+    <title>GHIA - Servicio de peritaje pre-compra</title> <!--  Tu próximo usado sin sorpresas-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 
-    <link rel="preload" href="https://app.ghia.com.ar/_framework/blazor.webassembly.js" as="script" crossorigin="anonymous" />
+    <link rel="preload" href="https://app.ghia.com.ar/_framework/blazor.webassembly.js" as="script"
+        crossorigin="anonymous" />
     <link rel="preload" href="https://app.ghia.com.ar/index.html" as="document" crossorigin="anonymous" />
 </head>
+
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="#page-top">Ghia</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -44,8 +53,9 @@
     <!-- Masthead-->
     <header class="masthead d-flex flex-column justify-content-between min-vh-100">
         <!-- Contenedor central -->
-        <div class="container-fluid px-4 px-lg-5 d-flex flex-column align-items-center justify-content-center flex-grow-1 text-center">
-            
+        <div
+            class="container-fluid px-4 px-lg-5 d-flex flex-column align-items-center justify-content-center flex-grow-1 text-center">
+
             <!-- Frase -->
             <h2 class="text-white-50 mb-4 fs-4 fs-md-5 fs-lg-4">
                 Algunos autos te llevan, <br>otros te marcan.<br>Todos tienen su historia.
@@ -60,7 +70,7 @@
         <!-- Flecha scroll -->
         <div class="scroll-down-wrapper text-center py-3">
             <a href="#about" class="scroll-down-link text-white-50 d-inline-block">
-            <i class="fas fa-chevron-down fa-2x animate__animated animate__bounce animate__infinite"></i>
+                <i class="fas fa-chevron-down fa-2x animate__animated animate__bounce animate__infinite"></i>
             </a>
         </div>
     </header>
@@ -71,7 +81,8 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="text-white mb-4">¿Vas a comprar o vender un auto?</h2>
-                    <p class="text-white-50 mb-4"> Evitá sorpresas: peritaje pre-compra, historial completo de servicios y cotización rápida de tu vehículo.
+                    <p class="text-white-50 mb-4"> Evitá sorpresas: peritaje pre-compra, historial completo de servicios
+                        y cotización rápida de tu vehículo.
                         <br> Todo online y en un solo lugar.
                     </p>
                     <!--<p class="text-white-50"> </p>-->
@@ -79,7 +90,8 @@
                         <!--<a class="btn btn-primary col-12 col-md-auto" href="https://app.ghia.com.ar/verificados">
                             Usados verificados
                         </a>-->
-                        <a class="btn btn-primary border-0 shadow-none col-12 col-md-auto" href="https://app.ghia.com.ar/">
+                        <a class="btn btn-primary border-0 shadow-none col-12 col-md-auto"
+                            href="https://app.ghia.com.ar/">
                             Ingresar a la app
                         </a>
                     </div>
@@ -106,20 +118,39 @@
                     <input type="text" id="marca" class="form-control" placeholder="Marca" autocomplete="off">
                 </div>
                 <div class="col-md-4 mb-2">
-                    <input type="text" id="modelo" class="form-control" placeholder="Modelo" autocomplete="off" disabled>
+                    <input type="text" id="modelo" class="form-control" placeholder="Modelo" autocomplete="off"
+                        disabled>
                 </div>
                 <div class="col-md-4 mb-2">
-                    <input type="text" id="version" class="form-control" placeholder="Versión" autocomplete="off" disabled>
+                    <input type="text" id="version" class="form-control" placeholder="Versión" autocomplete="off"
+                        disabled>
                 </div>
             </div>
         </form>
 
-        <div id="precios-container" class="table-responsive" style="display:none;">
+        <div id="resumen" style="display:none;" class="cardResumen">
+            <h2 id="tituloResumen"></h2>
+
+            <!-- BLOQUE PRINCIPAL -->
+            <p><strong>Precio más nuevo:</strong> <span id="precioHoy"></span></p>
+            <p><strong>Precio promedio en USD:</strong> <span id="precioUsdProm"></span></p>
+
+            <hr>
+            <p><strong>Desvalorización 1 año:</strong> <span id="desval1a"></span></p>
+            <p><strong>Desvalorización 2 años acumulada:</strong> <span id="desval2a"></span></p>
+            <p><strong>Desvalorización 5 años acumulada:</strong> <span id="desval5a"></span></p>
+            <p><strong>Desvalorización 10 años acumulada:</strong> <span id="desval10a"></span></p>
+
+        </div>
+
+        <div id="precios-container" class="table-responsive" style="display:none; font-size: small;">
             <table class="table table-striped table-bordered">
                 <thead class="table-dark">
                     <tr>
+                        <th>Version</th>
                         <th>Año</th>
                         <th>Precio</th>
+                        <th>USD</th>
                     </tr>
                 </thead>
                 <tbody id="precios-body"></tbody>
@@ -151,7 +182,8 @@
             <!-- Project One Row -->
             <div class="row gx-0 mb-5 mb-lg-0 justify-content-center align-items-stretch">
                 <div class="col-lg-6 d-flex">
-                    <img class="img-fluid rounded-start object-fit-cover w-100" src="assets/img/demo-image-01.jpg" alt="Peritaje vehicular" style="object-fit: cover; height: 100%;" />
+                    <img class="img-fluid rounded-start object-fit-cover w-100" src="assets/img/demo-image-01.jpg"
+                        alt="Peritaje vehicular" style="object-fit: cover; height: 100%;" />
                 </div>
                 <div class="col-lg-6 d-flex">
                     <div class="bg-dark text-white p-1 rounded-end shadow-lg d-flex align-items-center w-100">
@@ -172,7 +204,8 @@
             <!-- Project Two Row -->
             <div class="row gx-0 justify-content-center mt-5 align-items-stretch">
                 <div class="col-lg-6 d-flex">
-                    <img class="img-fluid rounded-end object-fit-cover w-100" src="assets/img/demo-image-02.jpg" alt="Historial de servicios" style="object-fit: cover; height: 100%;" />
+                    <img class="img-fluid rounded-end object-fit-cover w-100" src="assets/img/demo-image-02.jpg"
+                        alt="Historial de servicios" style="object-fit: cover; height: 100%;" />
                 </div>
                 <div class="col-lg-6 order-lg-first d-flex">
                     <div class="bg-dark text-white p-1 rounded-start shadow-lg d-flex align-items-center w-100">
@@ -193,7 +226,8 @@
     </section>
 
     <div class="container my-5">
-        <h3 class="text-center text-black my-2"><i class="fas fa-check-circle small" style="color: dodgerblue;"></i> Verificados destacados </h3>
+        <h3 class="text-center text-black my-2"><i class="fas fa-check-circle small" style="color: dodgerblue;"></i>
+            Verificados destacados </h3>
         <div class="d-flex overflow-auto gap-3 pb-2" id="carouselVerificados">
             <!-- Tarjetas cargadas por JS -->
         </div>
@@ -205,10 +239,15 @@
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-10 col-lg-8 mx-auto text-center">
                     <div class="d-flex flex-column align-items-center">
-                        <a class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2" style="background: rgba(255,255,255,0.1); color: #fff;" href="https://wa.me/543572667719?text=Hola!%20Estoy%20interesado%20en%20sus%20servicios." target="_blank" aria-label="WhatsApp">
+                        <a class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2"
+                            style="background: rgba(255,255,255,0.1); color: #fff;"
+                            href="https://wa.me/543572667719?text=Hola!%20Estoy%20interesado%20en%20sus%20servicios."
+                            target="_blank" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp me-2"></i> WhatsApp
                         </a>
-                        <a href="mailto:argentinaghia@gmail.com" class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2" style="background: rgba(255,255,255,0.1); color: #fff;" aria-label="Correo electrónico">
+                        <a href="mailto:argentinaghia@gmail.com"
+                            class="d-flex align-items-center px-3 py-2 text-decoration-none rounded-pill mb-2"
+                            style="background: rgba(255,255,255,0.1); color: #fff;" aria-label="Correo electrónico">
                             <i class="fas fa-envelope me-2"></i> Correo
                         </a>
                     </div>
@@ -253,14 +292,15 @@
             </div>
         </div>
     </section> -->
-    
+
     <!-- Footer-->
     <!--<footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Ghia -  2025</div></footer>-->
     <footer class="footer bg-black small text-center text-white-50">
         <p><strong>GHIA</strong> - El asistente de confianza para tu vehiculo.</p>
         <p style="max-width: 600px; margin: 1rem auto;">
             La información publicada en esta aplicación es orientativa y no oficial.
-            <br> El peritaje de vehículos es realizadas por usuarios independientes y no constituyen una revisión técnica oficial ni están avaladas por fabricantes, concesionarias u organismos estatales.
+            <br> El peritaje de vehículos es realizadas por usuarios independientes y no constituyen una revisión
+            técnica oficial ni están avaladas por fabricantes, concesionarias u organismos estatales.
             <br>El uso de los servicios ofrecidos es bajo exclusiva responsabilidad del usuario.
         </p>
         <p style="margin-top: 1rem;">&copy; 2025 Ghia. Todos los derechos reservados.</p>
@@ -270,6 +310,7 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
+
 </html>
 
 <style>
@@ -290,9 +331,9 @@
         color: #fff;
     }
 
-        .autocomplete-item:hover {
-            background-color: #333;
-        }
+    .autocomplete-item:hover {
+        background-color: #333;
+    }
 
     .input-wrapper {
         position: relative;
@@ -300,10 +341,61 @@
         width: 100%;
     }
 
-        .input-wrapper input.form-control {
-            width: 100%;
-            box-sizing: border-box;
+    .input-wrapper input.form-control {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .cardResumen {
+        background: #ffffff;
+        padding: 22px;
+        border-radius: 16px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        width: 100%;
+        max-width: 650px;
+        /* más ancho para PC */
+        margin: 20px auto;
+        /* centra en cualquier pantalla */
+        font-family: "Inter", Arial, sans-serif;
+        text-align: left;
+        box-sizing: border-box;
+    }
+
+    /* Título dentro de la card */
+    .cardResumen h2 {
+        margin-top: 0;
+        margin-bottom: 18px;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    /* Ítems */
+    .cardResumen p {
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    /* Etiquetas */
+    .cardResumen strong {
+        color: #333;
+        font-weight: 600;
+    }
+
+    /* Responsive para celulares */
+    @media (max-width: 480px) {
+        .cardResumen {
+            padding: 16px;
+            border-radius: 12px;
         }
+
+        .cardResumen h2 {
+            font-size: 1.2rem;
+        }
+
+        .cardResumen p {
+            font-size: 0.95rem;
+        }
+    }
 </style>
 
 <script>
@@ -312,15 +404,15 @@
     elements.forEach(el => el.classList.add('fade-slide'));
 
     const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-        } else {
-        entry.target.classList.remove('show');
-        }
-    });
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
     }, {
-    threshold: 0.1
+        threshold: 0.1
     });
 
     elements.forEach(el => observer.observe(el));
@@ -329,18 +421,18 @@
     let modeloInput = document.getElementById('modelo');
     let versionInput = document.getElementById('version');
     const preciosContainer = document.getElementById('precios-container');
+    const resumen = document.getElementById('resumen');
     const preciosBody = document.getElementById('precios-body');
     const apiBase = "https://ghiaprecios.azurewebsites.net/api/precios";
 
     function resetInput(inputId) {
         const oldInput = document.getElementById(inputId);
-        const newInput = oldInput.cloneNode(true); // clona sin eventos
+        const newInput = oldInput.cloneNode(true);
         oldInput.parentNode.replaceChild(newInput, oldInput);
         return newInput;
     }
 
     function setupCustomAutocomplete(input, buildUrl, onSelect) {
-        // Crear contenedor de resultados
         const wrapper = document.createElement('div');
         wrapper.className = 'input-wrapper';
         input.parentNode.insertBefore(wrapper, input);
@@ -395,52 +487,174 @@
         }
     }
 
-    // Marca
-    setupCustomAutocomplete(marcaInput, (term) => `${apiBase}/marcas?query=${encodeURIComponent(term)}`, (marca) => {
-        // Resetear campos y contenedores
-        modeloInput = resetInput("modelo");
-        versionInput = resetInput("version");
-        modeloInput.value = "";
-        versionInput.value = "";
-        modeloInput.disabled = false;
-        versionInput.disabled = true;
-        preciosContainer.style.display = 'none';
+    async function buscarPrecios(marca, modelo, version) {
 
-        // Modelo
-        setupCustomAutocomplete(modeloInput, (term) => `${apiBase}/modelos?marca=${encodeURIComponent(marca)}&query=${encodeURIComponent(term)}`, (modelo) => {
+        const versionQuery = version ? `&version=${encodeURIComponent(version)}` : "";
+
+        const res = await fetch(
+            `${apiBase}/resultados?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}${versionQuery}`
+        );
+
+        const precios = await res.json() ?? [];
+
+        preciosBody.innerHTML = "";
+
+        if (precios.length === 0) {
+            preciosBody.innerHTML = `<tr><td colspan="3">No se encontraron precios.</td></tr>`;
+            preciosContainer.style.display = "block";
+            return;
+        }
+
+        // Obtener dólar blue de hoy
+        let dolarBlue = 1500; // fallback
+
+        try {
+            const resBlue = await fetch("https://api.bluelytics.com.ar/v2/latest");
+            const dataBlue = await resBlue.json();
+            dolarBlue = dataBlue.blue.value_avg; // <-- valor real blue hoy
+        } catch (e) {
+            console.warn("No se pudo obtener dólar blue, usando 1500.");
+        }
+
+        const preciosPorAnio = {}; for (const p of precios) {
+            if (!preciosPorAnio[p.anio]) preciosPorAnio[p.anio] = [];
+            preciosPorAnio[p.anio].push(p.precio);
+        }
+
+        // --- 2) Promedio por año --- 
+        let aniosProm = Object.keys(preciosPorAnio)
+            .map(a => ({
+                anio: Number(a),
+                precioProm: preciosPorAnio[a].reduce((acc, v) => acc + v, 0) / preciosPorAnio[a].length
+            })).sort((a, b) => b.anio - a.anio);
+
+        // Año actual real (por si lo necesitás en otras partes)
+        const ANIO_ACTUAL_REAL = new Date().getFullYear();
+
+        // Año más nuevo disponible (correcto para autos discontinuados)
+        const ANIO_BASE = aniosProm[0]?.anio ?? ANIO_ACTUAL_REAL;
+
+        // --- 3) Precio HOY (precio del año más nuevo disponible) ---
+        const precioHoy = aniosProm[0]?.precioProm ?? null;
+
+        // --- 4) Función para buscar precios hacia atrás respecto a ANIO_BASE ---
+        function precioHace(anios) {
+            const target = ANIO_BASE - anios;
+
+            // Coincidencia exacta
+            const exact = aniosProm.find(x => x.anio === target);
+            if (exact) return exact.precioProm;
+
+            // Buscar el año más cercano hacia atrás
+            const menor = aniosProm.find(x => x.anio < target);
+            return menor ? menor.precioProm : null;
+        }
+
+        // --- 5) Obtener históricos ---
+        const precio1a = precioHace(1);
+        const precio2a = precioHace(2);
+        const precio5a = precioHace(5);
+        const precio10a = precioHace(10);
+
+        // --- 6) Función desvalorización ---
+        function desval(pPasado, pHoy) {
+            return pPasado ? (((pHoy - pPasado) / pPasado) * 100).toFixed(0) : "-";
+        }
+
+        // --- 7) Calcular desvalorizaciones ---
+        const d1 = desval(precio1a, precioHoy);
+        const d2 = desval(precio2a, precioHoy);
+        const d5 = desval(precio5a, precioHoy);
+        const d10 = desval(precio10a, precioHoy);
+
+        // --- 8) Promedio USD ---
+        const precioPromUSD = (
+            aniosProm.reduce((acc, a) => acc + (a.precioProm / dolarBlue), 0) / aniosProm.length
+        ).toFixed(0);
+
+        // --- 9) Render HTML ---------------------------------------------------------
+
+        document.getElementById("tituloResumen").innerText =
+            `${marca} ${modelo} — Evolución de precios`;
+
+        document.getElementById("precioHoy").innerText =
+            `$${(precioHoy / 1_000_000).toFixed(1)}M`;
+
+        document.getElementById("desval1a").innerText = d1 === "-" ? "-" : `${d1}%`;
+        document.getElementById("desval2a").innerText = d2 === "-" ? "-" : `${d2}%`;
+        document.getElementById("desval5a").innerText = d5 === "-" ? "-" : `${d5}%`;
+        document.getElementById("desval10a").innerText = d10 === "-" ? "-" : `${d10}%`;
+
+        document.getElementById("precioUsdProm").innerText =
+            `USD ${Number(precioPromUSD).toLocaleString()}`;
+
+        // Mostrar card
+        document.getElementById("resumen").style.display = "block";
+
+        // TABLA NORMAL
+        precios.forEach((p, i) => {
+
+            const precioUSD = p.precio > 100000 ? (p.precio / dolarBlue).toFixed(0) : p.precio;
+            preciosBody.innerHTML += `
+                <tr>
+                    <td>${p.version}</td>
+                    <td>${p.anio}</td>
+                    <td>$${p.precio.toLocaleString()}</td>
+                    <td>USD ${Number(precioUSD).toLocaleString()}</td>
+                </tr>
+            `;
+        });
+
+        preciosContainer.style.display = "block";
+    }
+
+    // Marca
+    setupCustomAutocomplete(marcaInput,
+        (term) => `${apiBase}/marcas?query=${encodeURIComponent(term)}`,
+        (marca) => {
+
+            modeloInput = resetInput("modelo");
             versionInput = resetInput("version");
+
+            modeloInput.value = "";
             versionInput.value = "";
-            versionInput.disabled = false;
+
+            modeloInput.disabled = false;
+
             preciosContainer.style.display = 'none';
 
-            // Versión
-            setupCustomAutocomplete(versionInput, (term) =>
-                `${apiBase}/versiones?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&query=${encodeURIComponent(term)}`, async (version) => {
-                    const res = await fetch(`${apiBase}/resultados?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&version=${encodeURIComponent(version)}`);
-                    if (!res.ok) {
-                        preciosBody.innerHTML = `<tr><td colspan="2">No se encontraron precios.</td></tr>`;
-                        preciosContainer.style.display = 'block';
-                        return;
-                    }
-                    const precios = await res.json();
-                    if (!precios || precios.length === 0) {
-                        preciosBody.innerHTML = `<tr><td colspan="2">No se encontraron precios.</td></tr>`;
-                        preciosContainer.style.display = 'block';
-                        return;
-                    }
-                    preciosBody.innerHTML = "";
-                    precios.forEach(p => {
-                        preciosBody.innerHTML += `
-                            <tr>
-                                <td>${p.anio}</td>
-                                <td>$${p.precio.toLocaleString()}</td>
-                            </tr>
-                        `;
+            // Modelo
+            setupCustomAutocomplete(modeloInput,
+                (term) => `${apiBase}/modelos?marca=${encodeURIComponent(marca)}&query=${encodeURIComponent(term)}`,
+                (modelo) => {
+
+                    versionInput = resetInput("version");
+                    versionInput.value = "";
+
+                    // Version ya NO está deshabilitado
+                    versionInput.disabled = false;
+
+                    preciosContainer.style.display = 'none';
+
+                    // Versión con autocomplete (pero libre)
+                    setupCustomAutocomplete(versionInput,
+                        (term) =>
+                            `${apiBase}/versiones?marca=${encodeURIComponent(marca)}&modelo=${encodeURIComponent(modelo)}&query=${encodeURIComponent(term)}`,
+                        async (versionSeleccionada) => {
+                            buscarPrecios(marca, modelo, versionSeleccionada);
+                        }
+                    );
+
+                    // ENTER permite buscar libremente
+                    versionInput.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter") {
+                            const versionLibre = versionInput.value.trim();
+                            buscarPrecios(marca, modelo, versionLibre);
+                        }
                     });
-                    preciosContainer.style.display = 'block';
-                });
+                }
+            );
         });
-    });
 
     async function loadVerificados() {
         const container = document.getElementById('carouselVerificados');
