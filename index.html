@@ -25,10 +25,6 @@
         rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-
-    <link rel="preload" href="https://app.ghia.com.ar/_framework/blazor.webassembly.js" as="script"
-        crossorigin="anonymous" />
-    <link rel="preload" href="https://app.ghia.com.ar/index.html" as="document" crossorigin="anonymous" />
 </head>
 
 <body id="page-top">
@@ -81,7 +77,8 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8">
                     <h2 class="text-black mb-4">¿Compras o vendes?</h2>
-                    <p class="text-black-100 mb-4"> Evitá sorpresas: peritaje pre-compra, historial completo de servicios
+                    <p class="text-black-100 mb-4"> Evitá sorpresas: peritaje pre-compra, historial completo de
+                        servicios
                         y cotización rápida de tu vehículo.
                         <br> Todo online y en un solo lugar.
                     </p>
@@ -90,8 +87,7 @@
                         <!--<a class="btn btn-primary col-12 col-md-auto" href="https://app.ghia.com.ar/verificados">
                             Usados verificados
                         </a>-->
-                        <a class="btn btn-outline-dark col-12 col-md-auto"
-                            href="https://app.ghia.com.ar/">
+                        <a class="btn btn-outline-dark col-12 col-md-auto" href="https://app.ghia.com.ar/">
                             Ingresar a la app
                         </a>
                     </div>
@@ -399,6 +395,15 @@
 </style>
 
 <script>
+
+    window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        // URL completa de tu hosting Blazor
+        script.src = "https://app.ghia.com.ar/_framework/blazor.webassembly.js"; 
+        script.async = true;
+        document.body.appendChild(script);
+    });
+
     const elements = document.querySelectorAll('p, b, text, strong, h1, h2, h3, h4, h5, h6, img');
 
     elements.forEach(el => el.classList.add('fade-slide'));
