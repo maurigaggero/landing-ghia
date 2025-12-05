@@ -665,7 +665,7 @@
         const container = document.getElementById('carouselVerificados');
 
         try {
-            const res = await fetch('https://carwatcherapi.azurewebsites.net/api/verificacion'); // cambiá la URL si hace falta
+            const res = await fetch('https://carwatcherapi.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=12'); 
             const data = await res.json();
             const verificaciones = data.slice(0, 12); // Mostramos hasta 12
 
