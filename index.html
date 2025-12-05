@@ -395,15 +395,6 @@
 </style>
 
 <script>
-
-    window.addEventListener('load', () => {
-        const script = document.createElement('script');
-        // URL completa de tu hosting Blazor
-        script.src = "https://app.ghia.com.ar/_framework/blazor.webassembly.js"; 
-        script.async = true;
-        document.body.appendChild(script);
-    });
-
     const elements = document.querySelectorAll('p, b, text, strong, h1, h2, h3, h4, h5, h6, img');
 
     elements.forEach(el => el.classList.add('fade-slide'));
