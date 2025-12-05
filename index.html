@@ -658,7 +658,7 @@
         try {
             const res = await fetch('https://carwatcherapi.azurewebsites.net/api/verificacion?pageNumber=1&pageSize=12'); 
             const data = await res.json();
-            const verificaciones = data.slice(0, 12); // Mostramos hasta 12
+            const verificaciones = data.items.slice(0, 12); // Mostramos hasta 12
 
             // Si no hay vehículos, mostramos un mensaje
             if (verificaciones.length === 0) {
